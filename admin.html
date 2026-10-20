@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if login_required %}
+<div data-aos="fade-up" class="max-w-md mx-auto bg-emerald-900/40 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-emerald-700/30">
+    <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-white">Staff Portal Login</h2>
+        <p class="text-sm text-slate-300 mt-2">Private staff access only.</p>
+    </div>
+
+    <form method="POST" class="space-y-4">
+        <div>
+            <label for="username" class="block text-xs font-bold text-emerald-200 uppercase mb-1">Username</label>
+            <input id="username" type="text" name="username" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Username">
+        </div>
+
+        <div>
+            <label for="password" class="block text-xs font-bold text-emerald-200 uppercase mb-1">Password</label>
+            <input id="password" type="password" name="password" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Password">
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-950/60 hover:scale-[1.01] active:scale-[0.99]">Log In</button>
+    </form>
+</div>
+{% else %}
+<div data-aos="fade-up" class="bg-emerald-900/40 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-emerald-700/30">
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h2 class="text-2xl font-bold text-white">Staff Portal</h2>
+            <p class="text-sm text-slate-300">Review and manage patient appointment requests.</p>
+        </div>
+        <a href="{{ url_for('logout') }}" class="bg-slate-700 hover:bg-slate-600 text-white text-sm px-3 py-2 rounded-md transition-all duration-200">Log Out</a>
+    </div>
+
+    <section aria-labelledby="appointment-inventory-heading" class="mb-6 rounded-xl border border-emerald-700/40 bg-emerald-950/40 p-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+                <h3 id="appointment-inventory-heading" class="text-lg font-bold text-emerald-100">Appointment Request Inventory</h3>
+                <p class="mt-1 text-sm text-slate-300">Patient bookings submitted through Book Appointment are saved here.</p>
+            </div>
+            <p class="rounded-lg bg-emerald-800/60 px-4 py-2 text-sm font-semibold text-emerald-100">
+                Saved requests: <span class="text-lg font-bold">{{ appointment_count }}</span>
+            </p>
+        </div>
+    </section>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm">
+            <thead>
+                <tr class="bg-emerald-950/60 text-emerald-300 border-b border-emerald-800/50">
+                    <th class="py-3 px-4">Ref Code</th>
+                    <th class="py-3 px-4">Patient</th>
+                    <th class="py-3 px-4">Service</th>
+                    <th class="py-3 px-4">Schedule</th>
+                    <th class="py-3 px-4">Status</th>
+                    <th class="py-3 px-4 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-emerald-800/30">
+                {% for apt in appointments %}
+                <tr class="hover:bg-emerald-950/30 transition-colors">
+                    <td class="py-3 px-4 font-mono font-bold text-xs text-emerald-400">{{ apt.reference_no }}</td>
+                    <td class="py-3 px-4">
+                        <div class="font-semibold text-white">{{ apt.patient_name }}</div>
+                        <div class="text-xs text-slate-400">{{ apt.patient_phone }}</div>
+                        <div class="text-xs text-slate-400">Age: {{ apt.patient_age if apt.patient_age is not none else '-' }} | Gender: {{ apt.patient_gender or '-' }} | {{ apt.marital_status or '-' }}</div>
+                        <div class="text-xs text-slate-400">{{ apt.patient_address or '-' }}</div>
+                    </td>
+                    <td class="py-3 px-4 text-slate-200">{{ apt.service }}</td>
+                    <td class="py-3 px-4 text-slate-200">
+                        {% if apt.appointment_date and apt.appointment_time %}
+                        {{ apt.appointment_date }}<br><span class="text-xs text-slate-400">{{ apt.appointment_time }}</span>
+                        {% else %}
+                        To be scheduled
+                        {% endif %}
+                    </td>
+                    <td class="py-3 px-4">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-bold
+                            {% if apt.status == 'Approved' %} bg-emerald-950 text-emerald-400 border border-emerald-700/60
+                            {% elif apt.status == 'Cancelled' %} bg-rose-950 text-rose-400 border border-rose-700/60
+                            {% else %} bg-amber-950 text-amber-400 border border-amber-700/60 {% endif %}">
+                            {{ apt.status }}
+                        </span>
+                    </td>
+                    <td class="py-3 px-4">
+                        <form method="POST" class="flex flex-col gap-2">
+                            <input type="hidden" name="appointment_id" value="{{ apt.id }}">
+                            <button type="submit" name="status" value="Approved" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-2.5 py-1.5 rounded-md transition-all duration-200">Approve</button>
+                        </form>
+                        <form method="POST" class="mt-2 flex gap-1">
+                            <input type="hidden" name="appointment_id" value="{{ apt.id }}">
+                            <button type="submit" name="status" value="Pending" class="bg-amber-600 hover:bg-amber-500 text-white text-xs px-2.5 py-1 rounded-md transition-all duration-200">Pending</button>
+                            <button type="submit" name="status" value="Cancelled" class="bg-rose-600 hover:bg-rose-500 text-white text-xs px-2.5 py-1 rounded-md transition-all duration-200">Cancel</button>
+                            <button type="submit" name="status" value="Remove" onclick="return confirm('Permanently remove this appointment? This cannot be undone.')" class="bg-slate-600 hover:bg-slate-500 text-white text-xs px-2.5 py-1 rounded-md transition-all duration-200">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="text-center py-6 text-slate-400">No appointments recorded yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

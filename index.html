@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="grid md:grid-cols-2 gap-12 items-center my-8">
+    <div data-aos="fade-right">
+        <span class="text-emerald-300 bg-emerald-900/60 border border-emerald-700/50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider inline-block">Fast & Reliable</span>
+        <h1 class="text-4xl font-extrabold text-white mt-4 leading-tight">Your Health, Scheduled with Ease.</h1>
+        <p class="text-slate-300 mt-4 leading-relaxed">Avoid long pharmacy lines and physical paperwork. Request an appointment or consultation online, select your preferred schedule, and track status instantly.</p>
+        
+        <div class="flex gap-4 mt-8">
+            <a href="{{ url_for('book') }}" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-emerald-900/40 hover:scale-105 active:scale-95 transition-all duration-200">Book Now</a>
+            <a href="{{ url_for('status') }}" class="bg-emerald-950/60 hover:bg-emerald-900/80 text-slate-200 font-semibold px-6 py-3 rounded-xl border border-emerald-700/50 hover:scale-105 active:scale-95 transition-all duration-200">Check Status</a>
+        </div>
+    </div>
+
+    <div data-aos="fade-left" data-aos-delay="200" class="bg-emerald-900/40 backdrop-blur-md p-8 rounded-3xl text-white border border-emerald-700/40 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <h1 class="text-xl font-bold mb-6 text-emerald-300">How it Works?</h1>
+        <div class="space-y-6">
+            <div data-aos="fade-up" data-aos-delay="300" class="flex gap-4 items-start">
+                <div class="w-8 h-8 rounded-full bg-emerald-800/80 border border-emerald-600/50 flex items-center justify-center font-bold text-sm text-emerald-300 shrink-0">1</div>
+                <div>
+                    <h4 class="font-semibold text-slate-100">Fill Out Request</h4>
+                    <p class="text-sm text-slate-300">Enter basic information and pick a convenient date and time slot.</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400" class="flex gap-4 items-start">
+                <div class="w-8 h-8 rounded-full bg-emerald-800/80 border border-emerald-600/50 flex items-center justify-center font-bold text-sm text-emerald-300 shrink-0">2</div>
+                <div>
+                    <h4 class="font-semibold text-slate-100">Get Reference Code</h4>
+                    <p class="text-sm text-slate-300">Receive a unique tracking code immediately after submission.</p>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="500" class="flex gap-4 items-start">
+                <div class="w-8 h-8 rounded-full bg-emerald-800/80 border border-emerald-600/50 flex items-center justify-center font-bold text-sm text-emerald-300 shrink-0">3</div>
+                <div>
+                    <h4 class="font-semibold text-slate-100">Staff Review</h4>
+                    <p class="text-sm text-slate-300">Pharmacy staff reviews and confirms your appointment online.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div data-aos="zoom-in" class="max-w-2xl mx-auto bg-white/85 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-emerald-800/30">
+    <div class="flex items-center justify-center gap-4 mb-3">
+        <div class="brand-mark-book" aria-hidden="true">
+            <div class="brand-symbol-book">
+                <span class="logo-l-book">L</span>
+                <span class="logo-p-book">P</span>
+            </div>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-emerald-900 leading-none" style="font-family: Georgia, 'Times New Roman', serif;">Lindy's Pharmacy</h2>
+    </div>
+    <p class="text-sm text-emerald-900/80 mb-6 text-center">Complete the form below to submit an online appointment request.</p>
+
+    <div class="w-fit mx-auto border border-emerald-800/40 bg-gradient-to-r from-emerald-900/10 via-emerald-700/10 to-emerald-900/15 rounded-full px-6 py-3 mb-6 text-center shadow-md shadow-emerald-900/10 animate-pulse">
+        <h3 class="text-lg font-black tracking-[0.22em] text-emerald-900 uppercase">Patient Profile</h3>
+    </div>
+
+    <form method="POST" class="space-y-4">
+        <div data-aos="fade-up" data-aos-delay="100">
+            <label class="block text-xs font-bold text-emerald-900 uppercase mb-1">Full Name</label>
+            <input type="text" name="patient_name" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="e.g. Juan Dela Cruz">
+        </div>
+
+        <div class="grid md:grid-cols-1 gap-4">
+            <div data-aos="fade-up" data-aos-delay="250">
+                <label class="block text-xs font-bold text-emerald-900 uppercase mb-1">Phone Number</label>
+                <input type="tel" name="patient_phone" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="09123456789">
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+            <div data-aos="fade-up" data-aos-delay="275">
+                <label for="patient_age" class="block text-xs font-bold text-emerald-900 uppercase mb-1">Age</label>
+                <input id="patient_age" type="number" name="patient_age" min="0" max="120" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Enter age">
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <label for="patient_gender" class="block text-xs font-bold text-emerald-900 uppercase mb-1">Gender</label>
+                <input id="patient_gender" type="text" name="patient_gender" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Enter gender">
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+            <div data-aos="fade-up" data-aos-delay="325">
+                <label for="patient_address" class="block text-xs font-bold text-emerald-900 uppercase mb-1">Address</label>
+                <input id="patient_address" type="text" name="patient_address" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Enter complete address">
+            </div>
+            <div data-aos="fade-up" data-aos-delay="350">
+                <label for="marital_status" class="block text-xs font-bold text-emerald-900 uppercase mb-1">Marital Status</label>
+                <select id="marital_status" name="marital_status" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200">
+                    <option value="" disabled selected class="bg-white text-emerald-800">Select marital status</option>
+                    <option value="Single" class="bg-white text-emerald-950">Single</option>
+                    <option value="Married" class="bg-white text-emerald-950">Married</option>
+                    <option value="Widowed" class="bg-white text-emerald-950">Widowed</option>
+                </select>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="300">
+            <label class="block text-xs font-bold text-emerald-900 uppercase mb-1">Service Required</label>
+            <select id="service" name="service" required class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200">
+                <option value="" disabled selected class="bg-white text-emerald-800">Select service</option>
+                <option value="Medicine Consultation" class="bg-white text-emerald-950">Medicine Consultation</option>
+                <option value="Prescription Refill" class="bg-white text-emerald-950">Prescription Refill</option>
+                <option value="Health Product Inquiry" class="bg-white text-emerald-950">Health Product Inquiry</option>
+                <option value="General Health Checkup" class="bg-white text-emerald-950">General Health Checkup</option>
+                <option value="Others:" class="bg-white text-emerald-950">Others:</option>
+                
+            </select>
+            <div id="other-service-field" class="hidden mt-3">
+                <label for="other_service" class="block text-xs font-bold text-emerald-900 uppercase mb-1">Please specify</label>
+                <input id="other_service" type="text" name="other_service" class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Enter the service you need">
+            </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="450">
+            <label class="block text-xs font-bold text-emerald-900 uppercase mb-1">Additional Notes / Symptoms (Optional)</label>
+            <textarea name="notes" rows="3" class="w-full bg-white/80 border border-emerald-800/30 rounded-xl px-4 py-2.5 text-sm text-emerald-950 placeholder-emerald-800/50 focus:ring-2 focus:ring-emerald-700 focus:outline-none transition-all duration-200" placeholder="Provide any additional details for pharmacy staff..."></textarea>
+        </div>
+
+        <button data-aos="zoom-in" data-aos-delay="500" type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-950/60 hover:scale-[1.01] active:scale-[0.99]">Submit Appointment Request</button>
+    </form>
+</div>
+<style>
+    .brand-mark-book {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        animation: brandBob 2.8s ease-in-out infinite;
+    }
+
+    .brand-symbol-book {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4.1rem;
+        height: 4.1rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.08));
+        border: 1px solid rgba(6, 78, 59, 0.35);
+        box-shadow: 0 0 18px rgba(16, 185, 129, 0.25);
+    }
+
+    .logo-l-book {
+        position: relative;
+        font-size: 3.15rem;
+        font-weight: 900;
+        line-height: 1;
+        color: #065f46;
+        text-shadow: 0 0 10px rgba(6, 95, 70, 0.25);
+    }
+
+    .logo-p-book {
+        position: absolute;
+        right: 0.18rem;
+        bottom: 0.08rem;
+        font-size: 2.2rem;
+        line-height: 1;
+        font-family: "Segoe Script", "Lucida Handwriting", cursive;
+        font-weight: 700;
+        color: #10b981;
+        transform: rotate(-12deg) scale(1.08);
+    }
+
+    @keyframes brandBob {
+        0%, 100% {
+            transform: translateY(0px) scale(1);
+        }
+        50% {
+            transform: translateY(-5px) scale(1.04);
+        }
+    }
+</style>
+<script>
+    const serviceSelect = document.getElementById('service');
+    const otherServiceField = document.getElementById('other-service-field');
+    const otherServiceInput = document.getElementById('other_service');
+
+    function toggleOtherServiceField() {
+        const isOtherService = serviceSelect.value === 'Others:';
+        otherServiceField.classList.toggle('hidden', !isOtherService);
+        otherServiceInput.required = isOtherService;
+    }
+
+    serviceSelect.addEventListener('change', toggleOtherServiceField);
+    toggleOtherServiceField();
+</script>
+{% endblock %}

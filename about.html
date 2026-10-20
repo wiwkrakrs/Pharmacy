@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-10 my-4">
+    <!-- Header / Overview -->
+    <div data-aos="fade-up" class="bg-emerald-900/40 backdrop-blur-md p-8 rounded-3xl border border-emerald-700/30 shadow-xl text-center transform hover:shadow-2xl transition-all duration-300">
+        <span data-aos="zoom-in" data-aos-delay="100" class="text-emerald-300 bg-emerald-950/60 border border-emerald-700/50 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider inline-block">Welcome</span>
+        <h1 data-aos="fade-up" data-aos-delay="200" class="text-3xl font-extrabold text-white mt-3">Lindy's Pharmacy</h1>
+        <p data-aos="fade-up" data-aos-delay="300" class="text-slate-300 mt-4 leading-relaxed max-w-2xl mx-auto text-sm md:text-base">
+            Lindy's Pharmacy is committed to providing quality medicines and friendly customer service to our community. We aim to help customers access the medicines and healthcare products they need while making every visit convenient, welcoming, and reliable. Your health and well-being are important to us.
+        </p>
+    </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="grid md:grid-cols-2 gap-6">
+        <!-- Mission -->
+        <div data-aos="fade-right" data-aos-delay="200" class="bg-gradient-to-br from-emerald-800/80 to-teal-900/80 backdrop-blur-md text-white p-8 rounded-3xl border border-emerald-600/40 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+                <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-4 text-2xl hover:rotate-12 transition-transform duration-300 text-emerald-300">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-3 text-emerald-200">Our Mission</h2>
+                <p class="text-slate-200 text-sm leading-relaxed">
+                    To provide quality medicines and healthcare products with friendly, reliable, and affordable service while helping promote the health and well-being of our community.
+                </p>
+            </div>
+        </div>
+
+        <!-- Vision -->
+        <div data-aos="fade-left" data-aos-delay="300" class="bg-emerald-900/40 backdrop-blur-md p-8 rounded-3xl border border-emerald-700/30 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+                <div class="w-12 h-12 bg-emerald-950/60 text-emerald-400 rounded-2xl flex items-center justify-center mb-4 text-2xl hover:rotate-12 transition-transform duration-300 border border-emerald-700/40">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-3">Our Vision</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    To become a trusted pharmacy in Catbalogan City, known for quality products, excellent customer service, and a strong commitment to the health and wellness of every customer.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Location Information -->
+    <div data-aos="fade-up" data-aos-delay="200" class="bg-emerald-900/40 backdrop-blur-md p-8 rounded-3xl border border-emerald-700/30 shadow-xl">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-address-book text-emerald-400 animate-bounce"></i> Contact Us
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Contact Number -->
+            <div data-aos="zoom-in" data-aos-delay="300" class="p-5 bg-emerald-950/50 rounded-2xl border border-emerald-800/40 hover:border-emerald-500/60 hover:bg-emerald-950/80 hover:shadow-xl transition-all duration-300">
+                <div class="w-10 h-10 bg-emerald-900/60 text-emerald-300 rounded-xl flex items-center justify-center mb-3 border border-emerald-700/40">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <h3 class="font-bold text-slate-200 text-sm">Contact Number</h3>
+                <p class="text-emerald-400 font-mono font-bold text-lg mt-1">
+                    <a href="tel:+639815509921" class="hover:text-emerald-300 transition-colors" aria-label="Call Lindy's Pharmacy at 0981 550 9921">0981 550 9921</a>
+                </p>
+                <p class="text-xs text-slate-400 mt-1">Call us for inquiries.</p>
+            </div>
+
+            <!-- Facebook Page -->
+            <div data-aos="zoom-in" data-aos-delay="400" class="p-5 bg-emerald-950/50 rounded-2xl border border-emerald-800/40 hover:border-blue-500/60 hover:bg-emerald-950/80 hover:shadow-xl transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=100054871115455" target="_blank" rel="noopener noreferrer" aria-label="Open Lindy's Pharmacy Facebook page" class="w-10 h-10 bg-blue-950/60 text-blue-400 rounded-xl flex items-center justify-center mb-3 border border-blue-800/40 hover:bg-blue-900/60 transition-colors">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <h3 class="font-bold text-slate-200 text-sm">Facebook Page</h3>
+                <p class="text-white font-semibold text-base mt-1">Lindy's Pharmacy</p>
+                <p class="text-xs text-slate-400 mt-1">Visit our Facebook page for updates and inquiries.</p>
+            </div>
+
+            <!-- Our Location -->
+            <div data-aos="zoom-in" data-aos-delay="500" class="p-5 bg-emerald-950/50 rounded-2xl border border-emerald-800/40 hover:border-rose-500/60 hover:bg-emerald-950/80 hover:shadow-xl transition-all duration-300">
+                <a href="https://maps.app.goo.gl/1wMBcNHtzHx44MYr7" target="_blank" rel="noopener noreferrer" aria-label="Open Lindy's Pharmacy location in Google Maps" class="w-10 h-10 bg-rose-950/60 text-rose-400 rounded-xl flex items-center justify-center mb-3 border border-rose-800/40 hover:bg-rose-900/60 transition-colors">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+                <h3 class="font-bold text-slate-200 text-sm">Our Location</h3>
+                <p class="text-slate-300 text-xs mt-1 leading-relaxed">
+                    Rizal Avenue, Poblacion 4, Catbalogan City, Samar, Philippines.
+                </p>
+                <p class="text-xs text-emerald-300 font-medium mt-2 bg-emerald-900/60 px-2.5 py-1 rounded-lg inline-block border border-emerald-700/50">
+                    Beside Elliculs and in front of Spark Jewelry.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

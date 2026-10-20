@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section data-aos="fade-up" class="space-y-8">
+    <div class="text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Doctors of the Pharmacy</h1>
+        <p class="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-slate-200">Meet our healthcare professionals, explore their specialties, and check their availability.</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+        <article data-aos="fade-up" data-aos-delay="100" class="doctor-card overflow-hidden rounded-2xl border border-emerald-700/40 bg-emerald-900/60 shadow-xl backdrop-blur-md">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Representative portrait of a doctor" class="h-64 w-full object-cover">
+                <details class="absolute inset-x-3 bottom-3 rounded-xl bg-emerald-950/95 text-center shadow-lg">
+                    <summary class="cursor-pointer list-none rounded-xl bg-emerald-700 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-600 [&::-webkit-details-marker]:hidden">View Schedule</summary>
+                    <p class="px-3 pb-3 text-sm font-semibold leading-relaxed text-emerald-100">Thursday and Friday, 1:00 PM–5:00 PM</p>
+                </details>
+            </div>
+            <div class="p-6 text-center">
+                <h2 class="text-xl font-bold text-white">Orthopedics</h2>
+                <p class="mt-1 text-base font-semibold text-emerald-200">Dr. Juan Dela Cruz</p>
+                <p class="doctor-signature" aria-label="Virtual signature of Dr. Juan Dela Cruz">Juan Dela Cruz</p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-200">Specializes in conditions affecting bones, joints, and the musculoskeletal system.</p>
+            </div>
+        </article>
+
+        <article data-aos="fade-up" data-aos-delay="200" class="doctor-card overflow-hidden rounded-2xl border border-emerald-700/40 bg-emerald-900/60 shadow-xl backdrop-blur-md">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Representative portrait of an ENT doctor" class="h-64 w-full object-cover">
+                <details class="absolute inset-x-3 bottom-3 rounded-xl bg-emerald-950/95 text-center shadow-lg">
+                    <summary class="cursor-pointer list-none rounded-xl bg-emerald-700 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-600 [&::-webkit-details-marker]:hidden">View Schedule</summary>
+                    <p class="px-3 pb-3 text-sm font-semibold leading-relaxed text-emerald-100">Tuesday, 5:00 PM; Wednesday, 11:00 AM–1:00 PM</p>
+                </details>
+            </div>
+            <div class="p-6 text-center">
+                <h2 class="text-xl font-bold text-white">ENT Doctor</h2>
+                <p class="mt-1 text-base font-semibold text-emerald-200">Dr. Michael Pangilinan</p>
+                <p class="doctor-signature" aria-label="Virtual signature of Dr. Michael Pangilinan">Michael Pangilinan</p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-200">Specializes in conditions of the ear, nose, and throat.</p>
+            </div>
+        </article>
+
+        <article data-aos="fade-up" data-aos-delay="300" class="doctor-card overflow-hidden rounded-2xl border border-emerald-700/40 bg-emerald-900/60 shadow-xl backdrop-blur-md">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Representative portrait of a doctor" class="h-64 w-full object-cover">
+                <details class="absolute inset-x-3 bottom-3 rounded-xl bg-emerald-950/95 text-center shadow-lg">
+                    <summary class="cursor-pointer list-none rounded-xl bg-emerald-700 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-600 [&::-webkit-details-marker]:hidden">View Schedule</summary>
+                    <p class="px-3 pb-3 text-sm font-semibold leading-relaxed text-emerald-100">Wednesday, 1:00 PM–5:00 PM</p>
+                </details>
+            </div>
+            <div class="p-6 text-center">
+                <h2 class="text-xl font-bold text-white">Psychiatrist</h2>
+                <p class="mt-1 text-base font-semibold text-emerald-200">Dr. Bea Borres</p>
+                <p class="doctor-signature" aria-label="Virtual signature of Dr. Bea Borres">Bea Borres</p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-200">Provides medical assessment and care for mental health conditions.</p>
+            </div>
+        </article>
+
+        <article data-aos="fade-up" data-aos-delay="400" class="doctor-card overflow-hidden rounded-2xl border border-emerald-700/40 bg-emerald-900/60 shadow-xl backdrop-blur-md md:col-start-2">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Representative portrait of a general doctor" class="h-64 w-full object-cover">
+                <details class="absolute inset-x-3 bottom-3 rounded-xl bg-emerald-950/95 text-center shadow-lg">
+                    <summary class="cursor-pointer list-none rounded-xl bg-emerald-700 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-600 [&::-webkit-details-marker]:hidden">View Schedule</summary>
+                    <p class="px-3 pb-3 text-sm font-semibold leading-relaxed text-emerald-100">By appointment only</p>
+                </details>
+            </div>
+            <div class="p-6 text-center">
+                <h2 class="text-xl font-bold text-white">General Doctor</h2>
+                <p class="mt-1 text-base font-semibold text-emerald-200">Dr. Jordan Paul</p>
+                <p class="doctor-signature" aria-label="Virtual signature of Dr. Jordan Paul">Jordan Paul</p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-200">Offers general medical consultations and routine health assessments.</p>
+            </div>
+        </article>
+    </div>
+</section>
+<style>
+    .doctor-card {
+        transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+    }
+
+    .doctor-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(110, 231, 183, 0.75);
+        box-shadow: 0 20px 35px rgba(2, 44, 34, 0.4);
+    }
+
+    .doctor-signature {
+        display: inline-block;
+        margin-top: 0.35rem;
+        border-bottom: 1px solid rgba(167, 243, 208, 0.65);
+        padding: 0 0.35rem 0.15rem;
+        color: #a7f3d0;
+        font-family: "Segoe Script", "Lucida Handwriting", cursive;
+        font-size: 1.15rem;
+        font-style: italic;
+        line-height: 1.4;
+        transform: rotate(-3deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .doctor-card {
+            transition: none;
+        }
+
+        .doctor-card:hover {
+            transform: none;
+        }
+    }
+</style>
+{% endblock %}

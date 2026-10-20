@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div data-aos="zoom-in" class="max-w-md mx-auto bg-emerald-900/40 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-emerald-700/30">
+    <h2 class="text-xl font-bold text-white mb-4 text-center">Track Appointment Status</h2>
+
+    <form method="GET" action="{{ url_for('status') }}" class="flex gap-2 mb-6">
+        <input type="text" name="ref" value="{{ ref }}" required placeholder="Enter Reference Code (e.g. APT-xxx)" class="flex-grow bg-emerald-950/60 border border-emerald-700/50 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+        <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all duration-200">Search</button>
+    </form>
+
+    {% if appointment %}
+    <div data-aos="fade-up" class="border-t border-emerald-800/40 pt-4 space-y-3 text-sm">
+        <div class="flex justify-between items-center py-2 border-b border-emerald-800/40">
+            <span class="text-slate-300">Status</span>
+            <span class="px-3 py-1 rounded-full text-xs font-bold
+                {% if appointment.status == 'Approved' %} bg-emerald-950 text-emerald-400 border border-emerald-700/60
+                {% elif appointment.status == 'Cancelled' %} bg-rose-950 text-rose-400 border border-rose-700/60
+                {% else %} bg-amber-950 text-amber-400 border border-amber-700/60 {% endif %}">
+                {{ appointment.status }}
+            </span>
+        </div>
+        <div class="flex justify-between py-1"><span class="text-slate-400">Reference:</span> <span class="font-mono font-bold text-emerald-400">{{ appointment.reference_no }}</span></div>
+        <div class="flex justify-between py-1"><span class="text-slate-400">Patient:</span> <span class="font-semibold text-white">{{ appointment.patient_name }}</span></div>
+        <div class="flex justify-between py-1"><span class="text-slate-400">Service:</span> <span class="text-slate-200">{{ appointment.service }}</span></div>
+        <div class="flex justify-between py-1"><span class="text-slate-400">Schedule:</span> <span class="font-semibold text-emerald-300">{% if appointment.appointment_date and appointment.appointment_time %}{{ appointment.appointment_date }} at {{ appointment.appointment_time }}{% else %}To be scheduled{% endif %}</span></div>
+        {% if appointment.status == 'Approved' and appointment.doctor_name %}
+        <div class="mt-4 rounded-xl border border-emerald-700/50 bg-emerald-950/70 p-4 text-emerald-100">
+            {% if appointment.appointment_date and appointment.appointment_time %}
+            Hi {{ appointment.patient_name }}, your appointment with Dr. {{ appointment.doctor_name }} is scheduled for {{ appointment.appointment_date }} at {{ appointment.appointment_time }}. Please proceed to the clinic for your appointed schedule. To cancel or change your time, just call {{ clinic_phone }}.
+            {% else %}
+            Hi {{ appointment.patient_name }}, Good news! Your appointment request has been approved. Please wait for a message from our staff regarding your appointment schedule and time. Thank you for your patience, and we look forward to assisting you!
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
